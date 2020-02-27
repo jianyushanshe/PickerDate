@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/include_pickerview_topbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/pickerview_topbar_height" />
+
+    <TextView
+        android:id="@+id/tv_select_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:background="@android:color/white"
+        android:visibility="gone"
+        android:text="--"
+        android:textColor="@color/bgColor_overlay"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tvDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="描述"
+        android:background="@color/pickerview_bg_topbar"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:paddingBottom="5dp"
+        android:textColor="@color/pickerview_topbar_desc"
+        android:textSize="@dimen/pickerview_topbar_desc_textsize"
+        android:visibility="gone"/>
+
+
+    <LinearLayout
+        android:id="@+id/optionspicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <com.jianyushanshe.pickerlib.lib.WheelView
+            android:id="@+id/options1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2" />
+
+        <com.jianyushanshe.pickerlib.lib.WheelView
+            android:id="@+id/options2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <com.jianyushanshe.pickerlib.lib.WheelView
+            android:id="@+id/options3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+
+</LinearLayout>
