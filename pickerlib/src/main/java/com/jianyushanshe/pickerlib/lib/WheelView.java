@@ -151,7 +151,7 @@ public class WheelView extends View {
         } else {
             dividerColor = divider;
         }
-
+       initPaints();
     }
 
     private void initLoopView(Context context) {
@@ -162,8 +162,6 @@ public class WheelView extends View {
         isLoop = true;
         totalScrollY = 0;
         initPosition = -1;
-        initPaints();
-
     }
 
     private void initPaints() {
