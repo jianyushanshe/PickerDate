@@ -3,6 +3,7 @@ package com.jianyushanshe.pickerlib;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -13,8 +14,8 @@ import java.util.ArrayList;
  */
 public class OptionsPickerView<T> extends BasePickerView implements View.OnClickListener {
     WheelOptions<T> wheelOptions;
-    private View btnSubmit, btnCancel;
-    private TextView tvTitle,tvDesc,tvHint;
+    private Button btnSubmit, btnCancel;
+    private TextView tvTitle, tvDesc, tvHint;
     private OnOptionsSelectListener optionsSelectListener;
     private static final String TAG_SUBMIT = "submit";
     private static final String TAG_CANCEL = "cancel";
@@ -23,9 +24,9 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
         super(context);
         LayoutInflater.from(context).inflate(R.layout.pickerview_options, contentContainer);
         // -----确定和取消按钮
-        btnSubmit = findViewById(R.id.btnSubmit);
+        btnSubmit = (Button) findViewById(R.id.btnSubmit);
         btnSubmit.setTag(TAG_SUBMIT);
-        btnCancel = findViewById(R.id.btnCancel);
+        btnCancel = (Button) findViewById(R.id.btnCancel);
         btnCancel.setTag(TAG_CANCEL);
         btnSubmit.setOnClickListener(this);
         btnCancel.setOnClickListener(this);
@@ -47,6 +48,14 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
      */
     public void setHintShow(boolean isShow) {
         tvHint.setVisibility(isShow ? View.VISIBLE : View.GONE);
+    }
+
+    public void setBtnSubmitColor(int color) {
+        btnSubmit.setTextColor(color);
+    }
+
+    public void setBtnCancelColor(int color) {
+        btnCancel.setTextColor(color);
     }
 
     /**
@@ -202,7 +211,15 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
         tvTitle.setText(title);
     }
 
-    public void setDesc(String desc){
+    public void setTitleColor(int color) {
+        tvTitle.setTextColor(color);
+    }
+
+    public void setWheelOptionsColor(int colorOut, int colorCenter, int divider) {
+        wheelOptions.setWheelColor(colorOut, colorCenter, divider);
+    }
+
+    public void setDesc(String desc) {
         tvDesc.setText(desc);
         tvDesc.setVisibility(View.VISIBLE);
     }

@@ -255,5 +255,11 @@ public class WheelOptions<T> {
         }
     }
 
+    public void setWheelColor(int colorOut, int colorCenter, int divider){
+        wv_option1.setWheelTextColor(colorOut,colorCenter,divider);
+        wv_option2.setWheelTextColor(colorOut,colorCenter,divider);
+        wv_option3.setWheelTextColor(colorOut,colorCenter,divider);
+    }
+
 
 }

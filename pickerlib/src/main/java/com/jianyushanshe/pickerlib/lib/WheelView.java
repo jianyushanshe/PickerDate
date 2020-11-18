@@ -113,9 +113,7 @@ public class WheelView extends View {
 
     public WheelView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        textColorOut = getResources().getColor(R.color.pickerview_wheelview_textcolor_out);
-        textColorCenter = getResources().getColor(R.color.pickerview_wheelview_textcolor_center);
-        dividerColor = getResources().getColor(R.color.pickerview_wheelview_textcolor_divider);
+        setWheelTextColor(0,0 , 0);
         //配合customTextSize使用，customTextSize为true才会发挥效果
         textSize = getResources().getDimensionPixelSize(R.dimen.pickerview_textsize);
         customTextSize = getResources().getBoolean(R.bool.pickerview_customTextSize);
@@ -128,6 +126,32 @@ public class WheelView extends View {
             textSize = a.getDimensionPixelOffset(R.styleable.pickerview_pickerview_textSize, textSize);
         }
         initLoopView(context);
+    }
+
+    /**
+     * 设置滚轮文字颜色
+     *
+     * @param colorOut    转出中间的文字颜色
+     * @param colorCenter 选中的文字颜色
+     * @param divider     消失出视图的文字颜色
+     */
+    public void setWheelTextColor(int colorOut, int colorCenter, int divider) {
+        if (colorOut == 0) {
+            textColorOut = getResources().getColor(R.color.pickerview_wheelview_textcolor_out);
+        } else {
+            textColorOut = colorOut;
+        }
+        if (colorCenter == 0) {
+            textColorCenter = getResources().getColor(R.color.pickerview_wheelview_textcolor_center);
+        } else {
+            textColorCenter = colorCenter;
+        }
+        if (divider == 0) {
+            dividerColor = getResources().getColor(R.color.pickerview_wheelview_textcolor_divider);
+        } else {
+            dividerColor = divider;
+        }
+
     }
 
     private void initLoopView(Context context) {
@@ -245,6 +269,7 @@ public class WheelView extends View {
 
     /**
      * 设置是否循环滚动
+     *
      * @param cyclic 是否循环
      */
     public final void setCyclic(boolean cyclic) {
@@ -435,14 +460,14 @@ public class WheelView extends View {
 
     /**
      * 根据传进来的对象获取getPickerViewText()方法，来获取需要显示的值
+     *
      * @param item 数据源的item
      * @return 对应显示的字符串
      */
     private String getContentText(Object item) {
         if (item == null) {
             return "";
-        }
-        else if (item instanceof IPickerViewData) {
+        } else if (item instanceof IPickerViewData) {
             return ((IPickerViewData) item).getPickerViewText();
         }
         return item.toString();
@@ -547,6 +572,7 @@ public class WheelView extends View {
 
     /**
      * 获取Item个数
+     *
      * @return item个数
      */
     public int getItemsCount() {
@@ -555,6 +581,7 @@ public class WheelView extends View {
 
     /**
      * 附加在右边的单位字符串
+     *
      * @param label 单位
      */
     public void setLabel(String label) {
