@@ -215,6 +215,12 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
         tvTitle.setTextColor(color);
     }
 
+    /**
+     * 设置滚轮文字颜色
+     * @param colorOut
+     * @param colorCenter
+     * @param divider
+     */
     public void setWheelOptionsColor(int colorOut, int colorCenter, int divider) {
         wheelOptions.setWheelColor(colorOut, colorCenter, divider);
     }
