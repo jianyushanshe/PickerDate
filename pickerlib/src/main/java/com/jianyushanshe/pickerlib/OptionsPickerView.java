@@ -211,6 +211,10 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
         tvTitle.setText(title);
     }
 
+    /**
+     * 设置标题颜色
+     * @param color
+     */
     public void setTitleColor(int color) {
         tvTitle.setTextColor(color);
     }
